@@ -33,7 +33,7 @@ const Header = () => {
           </div>
         ))}
         <div>
-          <p>+ {stagePeers.length - 2} </p>
+          <p> {stageNum && " + " + (stagePeers.length - 2)} </p>
         </div>
         <div className={s["box"]}>
           <div className={s["participants-count"]}>
