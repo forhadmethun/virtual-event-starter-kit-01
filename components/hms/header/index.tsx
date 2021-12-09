@@ -17,8 +17,8 @@ const Header = () => {
   if (stagePeers.length - 2 > 0) {
     stageNum = stagePeers.length - 2;
   }
-  let limit;
-  limit = stagePeers.length > 2 ? 2 : stagePeers.length;
+
+  const limit = stagePeers.length > 2 ? 2 : stagePeers.length;
 
   const leave = () => {
     try {
@@ -44,11 +44,11 @@ const Header = () => {
         <div>Speakers</div>
         {icon.slice(0, limit).map((p, i) => (
           <div className={s["info-box-image"]}>
-            <img src={p} key={i + p} />
+            <img src={p} key={i} />
           </div>
         ))}
         <div>
-          <p> {stageNum && " + " + (stagePeers.length - 2)} </p>
+          <p> {stageNum && " + " + (stagePeers.length - 2).toString()} </p>
         </div>
         <div className={s["box"]}>
           <div className={s["participants-count"]}>
