@@ -1,8 +1,4 @@
-import {
-  selectLocalPeer,
-  selectPeers,
-  selectPeersByRole,
-} from "@100mslive/hms-video-store";
+import { selectLocalPeer, selectPeersByRole } from "@100mslive/hms-video-store";
 import { ExitIcon } from "@100mslive/react-icons";
 import { useHMSActions, useHMSStore } from "@100mslive/react-sdk";
 import UsersIcon from "@components/icons/icon-users";
