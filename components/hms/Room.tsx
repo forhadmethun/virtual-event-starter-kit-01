@@ -1,10 +1,10 @@
-import React from 'react';
-import { useHMSActions, useHMSStore } from '@100mslive/react-sdk';
-import { selectIsConnectedToRoom } from '@100mslive/hms-video-store';
-import { getToken } from './getToken';
-import Join from './Join';
-import Live from './Live';
-import { useRouter } from 'next/router';
+import React from "react";
+import { useHMSActions, useHMSStore } from "@100mslive/react-sdk";
+import { selectIsConnectedToRoom } from "@100mslive/hms-video-store";
+import { getToken } from "./getToken";
+import Join from "./Join";
+import Live from "./Live";
+import { useRouter } from "next/router";
 
 interface Props {
   stagePeers: string[];
@@ -17,12 +17,12 @@ interface Props {
  */
 const Room = ({ roomId, stagePeers, backstagePeers }: Props) => {
   const router = useRouter();
-  const [token, setToken] = React.useState('');
+  const [token, setToken] = React.useState("");
   const actions = useHMSActions();
   const isConnected = useHMSStore(selectIsConnectedToRoom);
   React.useEffect(() => {
-    const role = router.query.role ? (router.query.role as string) : 'viewer';
-    console.log(role);
+    const role = router.query.role ? (router.query.role as string) : "viewer";
+
     getToken(role, roomId)
       .then(t => setToken(t))
       .catch(e => console.error(e));
@@ -32,7 +32,18 @@ const Room = ({ roomId, stagePeers, backstagePeers }: Props) => {
       actions.leave();
     };
   }, [actions]);
-  return <>{isConnected ? <Live /> : <Join token={token} />}</>;
+  return (
+    <>
+      {isConnected ? (
+        <Live />
+      ) : (
+        <Join
+          role={router.query.role ? (router.query.role as string) : "viewer"}
+          token={token}
+        />
+      )}
+    </>
+  );
 };
 
 export default Room;

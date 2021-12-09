@@ -1,57 +1,63 @@
-import { selectLocalPeerID, selectPeersByRole, selectLocalPeer } from '@100mslive/hms-video-store';
-import { useHMSStore } from '@100mslive/react-sdk';
-import s from './participant.module.css';
-import React from 'react';
-import Avatar from '../avatar';
-import Dropdown from './dropdown';
+import { selectLocalPeer, selectPeersByRole } from "@100mslive/hms-video-store";
+import { useHMSStore } from "@100mslive/react-sdk";
+import s from "./participant.module.css";
+import React from "react";
+import Avatar from "../avatar";
+import Dropdown from "./dropdown";
 
 const Participants = () => {
-  const stagePeers = useHMSStore(selectPeersByRole('stage'));
-  const backstagePeers = useHMSStore(selectPeersByRole('backstage'));
-  const inviteePeers = useHMSStore(selectPeersByRole('invitee'));
-  const viewerPeers = useHMSStore(selectPeersByRole('viewer'));
-  const localPeerId = useHMSStore(selectLocalPeerID);
+  const stagePeers = useHMSStore(selectPeersByRole("stage"));
+  const backstagePeers = useHMSStore(selectPeersByRole("backstage"));
+  const inviteePeers = useHMSStore(selectPeersByRole("invitee"));
+  const viewerPeers = useHMSStore(selectPeersByRole("viewer"));
   const localPeer = useHMSStore(selectLocalPeer);
-  console.log('l', localPeer);
   return (
-    <div className={s['part-ctx']}>
-      {backstagePeers.length > 0 && localPeer.roleName == 'backstage' ? (
+    <div className={s["part-ctx"]}>
+      {backstagePeers.length > 0 && localPeer.roleName === "backstage" ? (
         <>
           <div>
-            <p className={s['part-role']}>Moderator ({backstagePeers.length})</p>
+            <p className={s["part-role"]}>
+              Moderator ({backstagePeers.length})
+            </p>
             {backstagePeers.map(p => (
-              <div key={p.id} className={s['part-box']}>
+              <div key={p.id} className={s["part-box"]}>
                 <Avatar name={p.name} />
-                <div className={s['part-name']}>{p.name}</div>
-                {p.id !== localPeerId ? <Dropdown role={p.roleName || 'viewer'} id={p.id} /> : null}
+                <div className={s["part-name"]}>{p.name}</div>
+                {p.id !== localPeer.id ? (
+                  <Dropdown role={p.roleName || "viewer"} id={p.id} />
+                ) : null}
               </div>
             ))}
           </div>
-          <div className={s['divider']} />
+          <div className={s["divider"]} />
         </>
       ) : null}
       {stagePeers.length > 0 ? (
         <div>
-          <p className={s['part-role']}>Speaker ({stagePeers.length})</p>
+          <p className={s["part-role"]}>Speaker ({stagePeers.length})</p>
           {stagePeers.map(p => (
-            <div key={p.id} className={s['part-box']}>
+            <div key={p.id} className={s["part-box"]}>
               <Avatar name={p.name} />
-              <div className={s['part-name']}>{p.name}</div>
-              {p.id !== localPeerId ? <Dropdown role={p.roleName || 'viewer'} id={p.id} /> : null}
+              <div className={s["part-name"]}>{p.name}</div>
+              {p.id !== localPeer.id ? (
+                <Dropdown role={p.roleName || "viewer"} id={p.id} />
+              ) : null}
             </div>
           ))}
+          <div className={s["divider"]} />
         </div>
       ) : null}
-      <div className={s['divider']} />
 
       {inviteePeers.length > 0 ? (
         <div>
-          <p className={s['part-role']}>Invitee ({inviteePeers.length})</p>
+          <p className={s["part-role"]}>
+            Guest Speakers ({inviteePeers.length})
+          </p>
           {inviteePeers.map(p => (
-            <div key={p.id} className={s['part-box']}>
+            <div key={p.id} className={s["part-box"]}>
               <Avatar name={p.name} />
-              <div className={s['part-name']}>{p.name}</div>
-              <Dropdown id={p.id} role={p.roleName || 'viewer'} />
+              <div className={s["part-name"]}>{p.name}</div>
+              <Dropdown id={p.id} role={p.roleName || "viewer"} />
             </div>
           ))}
         </div>
@@ -59,12 +65,12 @@ const Participants = () => {
 
       {viewerPeers.length > 0 ? (
         <div>
-          <p className={s['part-role']}>Viewers ({viewerPeers.length})</p>
+          <p className={s["part-role"]}>Viewers ({viewerPeers.length})</p>
           {viewerPeers.map(p => (
-            <div key={p.id} className={s['part-box']}>
+            <div key={p.id} className={s["part-box"]}>
               <Avatar name={p.name} />
-              <div className={s['part-name']}>{p.name}</div>
-              <Dropdown role={p.roleName || 'viewer'} id={p.id} />
+              <div className={s["part-name"]}>{p.name}</div>
+              <Dropdown role={p.roleName || "viewer"} id={p.id} />
             </div>
           ))}
         </div>

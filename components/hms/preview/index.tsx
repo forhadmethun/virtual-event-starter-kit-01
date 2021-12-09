@@ -14,15 +14,17 @@ import { getAvatarBg } from '../getAvatarBg';
 import s from './index.module.css';
 import { HMSPeer, selectDevices, selectLocalMediaSettings } from '@100mslive/hms-video-store';
 import Select from '@components/hms/select';
+import InfoIcon from '@components/icons/icon-info';
+import router, { useRouter } from 'next/router';
 
 export const PreviewScreen: React.FC<{ token: string }> = ({ token }) => {
   const actions = useHMSActions();
   const { localPeer, audioEnabled, videoEnabled } = usePreview(token, 'preview');
-  const [name, setName] = React.useState('');
+  // const [name, setName] = React.useState('');
   const joinRoom = (e: React.FormEvent) => {
     e.preventDefault();
     actions.join({
-      userName: name,
+      userName: 'David',
       authToken: token,
       settings: {
         isAudioMuted: !audioEnabled,
@@ -31,17 +33,18 @@ export const PreviewScreen: React.FC<{ token: string }> = ({ token }) => {
       rememberDeviceSelection: true
     });
   };
-  console.log(localPeer);
+  const router = useRouter();
+  const name = router.query.name as string;
   return (
     <div className={s['preview-container']}>
       {localPeer ? <PreviewVideo name={name} peer={localPeer} /> : <VideoLoader />}
       <div className={s['wrapper']}>
         <div>
-          <p className={s['head-text']}>Welcome!</p>
+          <p className={s['head-text']}>Welcome {name}</p>
           <p className={s['sub-text']}>Preview your video and audio before joining the stage</p>
         </div>
         <form onSubmit={joinRoom}>
-          <p className={s['label']}>Enter name:</p>
+          {/* <p className={s['label']}>Enter name:</p>
           <input
             required
             maxLength={20}
@@ -49,10 +52,20 @@ export const PreviewScreen: React.FC<{ token: string }> = ({ token }) => {
             value={name}
             onChange={e => setName(e.target.value)}
             type="text"
-          />
-          <button className={s['btn']} type="submit">
-            Join Stage <ArrowRightIcon />
-          </button>
+          /> */}
+          <p className={s['info']}>
+            <InfoIcon /> Note: Your mic is {audioEnabled ? 'on' : 'off'} and video is{' '}
+            {videoEnabled ? 'on' : 'off'}
+          </p>
+
+          <div className={s['btn-wrapper']}>
+            <button className={`${s['back-btn']} ${s['btn']}`} onClick={() => router.push('/')}>
+              Go back
+            </button>
+            <button className={s['btn']} type="submit">
+              Join Stage <ArrowRightIcon />
+            </button>
+          </div>
         </form>
       </div>
     </div>
