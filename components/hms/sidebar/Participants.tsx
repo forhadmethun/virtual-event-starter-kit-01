@@ -15,7 +15,7 @@ const Participants = () => {
   console.log('l', localPeer);
   return (
     <div className={s['part-ctx']}>
-      {backstagePeers.length > 0 ? (
+      {backstagePeers.length > 0 && localPeer.roleName == 'backstage' ? (
         <>
           <div>
             <p className={s['part-role']}>Moderator ({backstagePeers.length})</p>
