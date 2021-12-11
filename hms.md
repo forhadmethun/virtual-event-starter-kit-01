@@ -42,6 +42,8 @@
 - Create `<Button />` component
 - Role based Join Form logic
 - Viewer's Join form
+- Speaker/Mod Preview (needs Settings)
+- Avatar Component + Utilities
 
 ## Todo
 

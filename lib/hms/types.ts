@@ -2,7 +2,7 @@
  * List of Roles available 
  * @readonly
  */
-export const rolesList = ['moderator' , 'speaker' , 'invitee' ,'viewer'] as const
+export const rolesList = ['backstage' , 'stage' , 'invitee' ,'viewer'] as const
 
 type UnionFromTuple<Tuple extends readonly (string | number | boolean)[]> = Tuple[number];
 

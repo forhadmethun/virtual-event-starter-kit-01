@@ -2,7 +2,7 @@
 import { getToken } from '@lib/getToken';
 import { rolesList } from '@lib/hms/types';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ViewerJoin from './ViewerJoin';
 import SpeakerJoin from './SpeakerJoin';
 
@@ -14,11 +14,11 @@ interface Props {
  * Join form & Preview
  */
 const Join: React.FC<Props> = ({ roomId }) => {
-  const router = useRouter();
-  const paramRole = router.query.role;
   const [token, setToken] = useState('');
-  const tempRole = paramRole ? (paramRole as string) : 'viewer';
-  React.useEffect(() => {
+  const router = useRouter();
+  useEffect(() => {
+    if (!router.isReady) return;
+    const tempRole = (router.query.role as string) || 'viewer';
     // @ts-ignore
     if (rolesList.includes(tempRole)) {
       // @ts-ignore
@@ -30,12 +30,12 @@ const Join: React.FC<Props> = ({ roomId }) => {
     } else {
       throw new Error(`Invalid Role join with the following: ${rolesList.join(', ')}`);
     }
-  }, [tempRole, roomId]);
+  }, [router.isReady, router.query.role, roomId]);
   return (
     <div className="flex flex-col items-center justify-center h-full w-full space-y-4">
       {token ? (
-        tempRole === 'moderator' || tempRole === 'speaker' ? (
-          <SpeakerJoin />
+        router.query.role === 'stage' || router.query.role === 'backstage' ? (
+          <SpeakerJoin token={token} />
         ) : (
           <ViewerJoin />
         )

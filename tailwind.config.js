@@ -3,6 +3,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        foreground: 'var(--foreground)',
         gray: {
           100: 'var(--accents-1)',
           200: 'var(--accents-2)',
