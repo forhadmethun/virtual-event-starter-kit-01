@@ -59,11 +59,11 @@
   --sidebar: #0e0e10;
   --header-height: 72px;
   --brand: #845ef7;
-  --brand-lighter: #D6CCEE,
-  --brand-light: #8465CB,
-  --brand-dark: #472A84;
+  --brand-lighter: #d6ccee;
+  --brand-light: #8465cb;
+  --brand-dark: #472a84;
 
-  --foreground: #FFF
+  --foreground: #fff;
 }
 
 html {
@@ -168,4 +168,20 @@ svg circle {
   width: auto;
   height: auto;
   clip: auto;
+}
+
+button {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--foreground);
+  font-family: inherit;
+  background-color: none;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+input {
+  font-family: inherit;
+  color: var(--foreground);
+  border: none;
 }

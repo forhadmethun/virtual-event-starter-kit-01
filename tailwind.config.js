@@ -22,6 +22,16 @@ module.exports = {
           300: 'var(--brand)',
           400: 'var(--brand-dark)'
         }
+      },
+      fontSize: {
+        xs: 'var(--text-xs)',
+        sm: 'var(--text-sm)',
+        md: 'var(--text-md)',
+        lg: 'var(--text-lg)',
+        xl: 'var(--text-xl)'
+      },
+      minWidth: {
+        btn: '160px'
       }
     }
   },
