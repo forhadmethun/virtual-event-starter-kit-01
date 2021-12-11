@@ -37,7 +37,6 @@ export default function StageContainer({ stage, allStages }: Props) {
   const updatedStages = response.data || [];
   const updatedStage = updatedStages.find((s: Stage) => s.slug === stage.slug) || stage;
   const { loginStatus, mutate } = useLoginStatus();
-
   return (
     <div className={styles.container}>
       <div className={styles.streamContainer}>
