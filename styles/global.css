@@ -60,6 +60,11 @@
   --sidebar: #0e0e10;
   --header-height: 72px;
   --brand: #845ef7;
+  --brand-lighter: #D6CCEE,
+  --brand-light: #8465CB,
+  --brand-dark: #472A84;
+
+  --foreground: #FFF
 }
 
 html {
@@ -98,12 +103,12 @@ body {
 }
 html,
 body {
-  color: #fff;
-  background-color: #111;
+  color: var(--foreground);
+  background-color: var(--accents-8);
 }
 ::selection {
   background-color: #0070f3;
-  color: #fff;
+  color: var(--accents-8);
 }
 [role='grid']:focus {
   outline: none;
@@ -159,7 +164,7 @@ svg circle {
   position: fixed;
   top: 10px;
   left: 10px;
-  background: #fff;
+  background: var(--foreground);
   z-index: 1;
   width: auto;
   height: auto;
