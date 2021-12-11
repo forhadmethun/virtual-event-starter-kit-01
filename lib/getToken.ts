@@ -1,4 +1,4 @@
-import { Roles } from "./hms/types";
+import { RolesType } from "./hms/types";
 
 const endPoint = process.env.NEXT_PUBLIC_HMS_TOKEN_ENDPOINT;
 
@@ -6,7 +6,7 @@ const endPoint = process.env.NEXT_PUBLIC_HMS_TOKEN_ENDPOINT;
  * Generates a Token for joining room
  */
 export const getToken = async (
-  role: Roles,
+  role: RolesType,
   room_id: string
 ): Promise<string> => {
   const response = await fetch(`${endPoint}api/token`, {

@@ -24,6 +24,20 @@
 - Created `/lib/hms/types.ts` contains all types used by 100ms
 - Added `getToken.ts` is a helper function to generate token
 
+- Installed 100ms's Packages
+- Wrapped App component with `<HMSRoomProvider />`
+- 2 views -> Join form & Room
+- Generating token and rendering views
+
 ## Todo
 
 - [ ] Prev `postcss.config.json` merging with `postcss.config.js`
+- [ ] Write meaningful components explanation (take help from Shail)
+- [ ] Remove all `@ts-ignore`
+- [ ] Better Error Messages (?)
+- [ ] Throw error if Token endpoint is undefined
+
+## Good stuff
+
+- Throws error when joining with wrong Role name
+- Types extracted from `rolesList` into string literals

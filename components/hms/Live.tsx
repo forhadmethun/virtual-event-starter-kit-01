@@ -1,4 +1,8 @@
+import { selectIsConnectedToRoom } from '@100mslive/hms-video-store';
+import { useHMSStore } from '@100mslive/react-sdk';
 import React from 'react';
+import Join from './Join';
+import Room from './Room';
 
 interface Props {
   roomId: string;
@@ -8,7 +12,8 @@ interface Props {
  * Entrypoint for Joining the Live Conference
  */
 const Live: React.FC<Props> = ({ roomId }) => {
-  return <div>100ms Live {roomId}</div>;
+  const isConnected = useHMSStore(selectIsConnectedToRoom);
+  return <>{isConnected ? <Room /> : <Join roomId={roomId} />}</>;
 };
 
 export default Live;

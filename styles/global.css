@@ -107,7 +107,7 @@ body {
 }
 ::selection {
   background-color: #0070f3;
-  color: var(--accents-8);
+  color: var(--foreground);
 }
 [role='grid']:focus {
   outline: none;
