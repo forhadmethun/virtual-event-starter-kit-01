@@ -1,0 +1,1 @@
+export type Roles = 'moderator' | 'speaker' | 'invitee' |'viewer'

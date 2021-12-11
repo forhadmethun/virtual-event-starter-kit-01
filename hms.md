@@ -1,5 +1,14 @@
 # 100ms Integrations
 
+## Info
+
+- `hms` folder has all the components used by 100ms
+- `<Live />` component is an entry point to Live Room
+- `/lib/hms/types.ts` contains all types used by 100ms
+- `getToken.ts` is a helper function to generate token
+
+## Changes Done (based on each commits)
+
 - Added Tailwind for ease.
 - Config files in `.eslintignore`
 
@@ -11,6 +20,10 @@
 - Added `roomId` & `isLive` attribute
 - Updated types for datocms response
 
-### Todo
+- Created `<Live />` component is an entry point to Live Room
+- Created `/lib/hms/types.ts` contains all types used by 100ms
+- Added `getToken.ts` is a helper function to generate token
+
+## Todo
 
 - [ ] Prev `postcss.config.json` merging with `postcss.config.js`
