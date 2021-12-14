@@ -14,7 +14,6 @@ const Chat = () => {
     actions.sendBroadcastMessage(msg);
     setMsg('');
   };
-
   React.useEffect(() => {
     const el = document.getElementById('chat-feed');
     if (el) {
@@ -38,7 +37,7 @@ const Chat = () => {
                         m.senderRole === 'backstage' ? s['mod-badge'] : ''
                       }`}
                     >
-                      {m.senderRole === 'stage' ? 'speaker' : 'moderator'}
+                      {m.senderRole === 'stage' ? 'Speaker' : 'Moderator'}
                     </span>
                   ) : null}
                   <span className={s['chat-time']}>
@@ -61,8 +60,8 @@ const Chat = () => {
             <div className={s['chat-none-message']}>
               <img src="/chat.svg" width={60} className={s['chat-none-image']}></img>
               <p>
-                Welcome to the Webinar. You can engage with the speak and other participants through
-                the chat below.
+                Welcome to the Webinar. You can engage with the speaker and other participants
+                through the chat below.
               </p>
             </div>
           </div>

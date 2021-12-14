@@ -1,68 +1,43 @@
-const defaultTheme = require("tailwindcss/defaultTheme")
-
 module.exports = {
-    purge: {
-        content: [
-            "./pages/**/*.{js,ts,jsx,tsx}",
-            "./components/**/*.{js,ts,jsx,tsx}",
-        ],
-        safelist: ["bg-gray-600", "border-gray-400"],
-    },
+    content: [
+        "./pages/**/*.{js,ts,jsx,tsx}",
+        "./components/**/*.{js,ts,jsx,tsx}",
+    ],
     theme: {
         extend: {
-            fontFamily: {
-                sans: ["Inter", ...defaultTheme.fontFamily.sans],
-                head: ["GeneralSans", ...defaultTheme.fontFamily.sans],
-                code: ["Menlo", ...defaultTheme.fontFamily.sans],
-            },
-            inset: {
-                "-4.5": "-18px",
-            },
             colors: {
-                radio: "#37F28D",
-                blog: {
-                    para: "#d1d5db",
-                },
-                brand: {
-                    100: "#6DA5FF",
-                    250: "#438BFF",
-                    300: "#2F80FF",
-                    350: "#2A72E5",
-                    400: "#2565CC",
-                    500: "#1C4C99",
-                    600: "#173F7F",
-                    700: "#123266",
-                    800: "#0E264C",
-                    900: "#091933",
-                },
+                foreground: "var(--foreground)",
                 gray: {
-                    150: "#FFFFFF66",
-                    650: "#5c5c6e",
-                    100: "#B0C3DB",
-                    200: "#8FA0B7",
-                    300: "#657080",
-                    400: "#303740",
-                    500: "#1D232B",
-                    550: "#11161f",
-                    600: "#0B0F15",
+                    100: "var(--accents-1)",
+                    200: "var(--accents-2)",
+                    300: "var(--accents-3)",
+                    400: "var(--accents-4)",
+                    500: "var(--accents-5)",
+                    600: "var(--accents-6)",
+                    700: "var(--accents-7)",
+                    800: "var(--accents-8)",
                 },
-                dark: {
-                    200: "#2B3139",
-                    300: "#1B2028",
-                    400: "#161B22",
-                    500: "#0F141D",
-                    600: "#0B0F15",
+                "gray-main": "var(--gray)",
+                secondary: "var(--secondary-color)",
+                sidebar: "var(--sidebar)",
+                brand: {
+                    100: "var(--brand-lighter)",
+                    200: "var(--brand-light)",
+                    300: "var(--brand)",
+                    400: "var(--brand-dark)",
                 },
             },
-            width: {
-                hero: "500px",
-                heroDesc: "450px",
+            fontSize: {
+                xs: "var(--text-xs)",
+                sm: "var(--text-sm)",
+                md: "var(--text-md)",
+                lg: "var(--text-lg)",
+                xl: "var(--text-xl)",
+            },
+            minWidth: {
+                btn: "160px",
             },
         },
     },
-    variants: {
-        extend: {
-            display: ["group-hover"],
-        },
-    },
+    plugins: [],
 }

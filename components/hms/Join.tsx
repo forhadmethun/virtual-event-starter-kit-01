@@ -29,7 +29,7 @@ const ViewersJoin: React.FC<{ token: string }> = ({ token }) => {
   const joinRoom = (e: React.FormEvent) => {
     e.preventDefault();
     actions.join({
-      userName: name,
+      userName: name || 'David',
       authToken: token
     });
   };
@@ -41,6 +41,7 @@ const ViewersJoin: React.FC<{ token: string }> = ({ token }) => {
       </p>
       <form onSubmit={e => joinRoom(e)} className={s['wrapper']}>
         <input
+          maxLength={20}
           value={name}
           onChange={e => setName(e.target.value)}
           className={s['input']}
