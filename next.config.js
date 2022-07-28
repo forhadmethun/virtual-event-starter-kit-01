@@ -26,13 +26,4 @@ module.exports = {
     ],
     imageSizes: [24, 64, 300]
   },
-  async redirects() {
-    return [
-      {
-        source: '/:slug*',
-        destination: 'https://demo.vercel.events/:slug*', // Matched parameters can be used in the destination
-        permanent: false
-      }
-    ];
-  }
 };
