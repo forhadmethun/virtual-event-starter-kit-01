@@ -28,7 +28,7 @@ type Props = {
 export default function SponsorSection({ sponsor }: Props) {
   return (
     <>
-      <Link legacyBehavior href="/expo">
+      <Link href="/expo">
         <a className={styles.backlink}>
           <svg
             viewBox="0 0 24 24"

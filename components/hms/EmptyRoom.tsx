@@ -44,11 +44,11 @@ const EmptyRoom = () => {
           </Button>
         </div>
 
-        {/*<ChangeRoleDialog>*/}
-        {/*  <Button>*/}
-        {/*    <PersonIcon className="mr-2" /> Change Role*/}
-        {/*  </Button>*/}
-        {/*</ChangeRoleDialog>*/}
+        <ChangeRoleDialog>
+          <Button>
+            <PersonIcon className="mr-2" /> Change Role
+          </Button>
+        </ChangeRoleDialog>
       </div>
     </div>
   );
