@@ -54,7 +54,7 @@ export default function Layout({
           <header className={cn(styles.header)}>
             <div className={styles['header-logos']}>
               <MobileMenu key={router.asPath} />
-              <Link href="/">
+              <Link legacyBehavior href="/">
                 {/* eslint-disable-next-line */}
                 <a className={styles.logo}>
                   <Logo />
