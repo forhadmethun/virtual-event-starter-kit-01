@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Button from './Button';
-import { InviteIcon, PersonIcon } from '@100mslive/react-icons';
-import { selectLocalPeerRole } from '@100mslive/react-sdk';
-import { useHMSStore } from '@100mslive/react-sdk';
-import { ChangeRoleDialog } from './demo-cta/room-cta';
-import { useRouter } from 'next/router';
+import {InviteIcon} from '@100mslive/react-icons';
+import {selectLocalPeerRole, useHMSStore} from '@100mslive/react-sdk';
+import {useRouter} from 'next/router';
 
 const EmptyRoom = () => {
   const role = useHMSStore(selectLocalPeerRole) || 'viewer';

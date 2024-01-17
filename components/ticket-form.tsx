@@ -87,7 +87,9 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
         const windowWidth = 600;
         const windowHeight = 700;
         // https://stackoverflow.com/a/32261263/114157
+        // @ts-ignore
         const windowTop = window.top.outerHeight / 2 + window.top.screenY - 700 / 2;
+        // @ts-ignore
         const windowLeft = window.top.outerWidth / 2 + window.top.screenX - 600 / 2;
 
         const openedWindow = window.open(
